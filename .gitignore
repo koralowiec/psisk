@@ -1,3 +1,6 @@
+# Node stuff
+serving/node_modules
+
 # Saved jsons
 static_services/*.json
 
