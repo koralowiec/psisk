@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  serving:
+    build: 
+      context: .
+      dockerfile: serving.Dockerfile
+    volumes:
+      - type: bind
+        source: ./public
+        target: /public
+    ports: 
+      - "3000:3000"
+  crawler:
+    build:
+      context: .
+      dockerfile: crawler.Dockerfile
+    command: scrapy crawl main --nolog
+    volumes:
+      - type: bind
+        source: ./public
+        target: /public
