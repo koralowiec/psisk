@@ -3,8 +3,9 @@
 ## Install dependencies:
 
 1. Python (version 3.* recomended)
-   Creating virtual environment with virtualenv (not mandatory, for not messing up with global python dependencies)
+   
    ```shell
+   # Creating virtual environment with virtualenv (not mandatory, for not messing up with global python dependencies)
    virtualenv -p python3 ./env
    ```
    
