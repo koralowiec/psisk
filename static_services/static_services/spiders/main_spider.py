@@ -4,8 +4,18 @@ import os
 
 class MainSpider(scrapy.Spider):
     name = 'main'
-    start_urls = ['http://kkio.pti.org.pl/2017/']
+    start_urls = []
     saved_pages = set()
+    url = ''
+    
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        if self.url:
+            print(self.url)
+            self.start_urls.append(self.url)
+        else:
+            print('None url provided, using default one: http://kkio.pti.org.pl/2017/')
+            self.start_urls.append('http://kkio.pti.org.pl/2017/')
     
     def parse(self, response):
         current_url = response.request.url
@@ -45,7 +55,7 @@ class MainSpider(scrapy.Spider):
         dirs = f'../public/{url_after_sufix}'
         os.makedirs(dirs, exist_ok=True)
         
-        html_name = f'../public/{dirs}page.html'
+        html_name = f'../public/{dirs}/page.html'
         # print(f'Html name: {html_name}')
         with open(html_name, 'wb') as html_file:
             html_file.write(response.body)

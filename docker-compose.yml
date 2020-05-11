@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: crawler.Dockerfile
-    command: scrapy crawl main --nolog
+    command: scrapy crawl main --nolog -a url=$URL
     volumes:
       - type: bind
         source: ./public
