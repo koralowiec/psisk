@@ -44,6 +44,8 @@
    ```shell
    # Creating virtual environment with virtualenv (not mandatory, for not messing up with global python dependencies)
    virtualenv -p python3 ./env
+   # Activate virtual environment
+   source ./env/bin/activate
    ```
    
    ```shell
@@ -64,7 +66,7 @@ cd ./static_services
 
 scrapy crawl main
 # or with custom url
-scrapy crawl main -a URL='https://weii.prz.edu.pl/'
+scrapy crawl main -a url='https://weii.prz.edu.pl/'
 
 cd .. # come back to root of project
 ```
